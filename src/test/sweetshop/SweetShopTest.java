@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.List;
+
 
 public class SweetShopTest {
 
@@ -35,6 +37,19 @@ public class SweetShopTest {
         // try to find it now, should throw an exception
         assertThrows(SweetNotFoundException.class, () -> shop.findById(1001));
     }
+
+    @Test
+    void testSearchByName() {
+        // add a sweet and search by name
+        SweetShop shop = new SweetShop();
+        shop.addSweet(new Sweet(1, "Barfi", "Milk", 20, 5));
+
+        // should return 1 sweet with that name
+        List<Sweet> result = shop.searchByName("Barfi");
+        assertEquals(1, result.size());
+    }
+
+    
    
     
 }
