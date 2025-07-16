@@ -49,6 +49,18 @@ public class SweetShopTest {
         assertEquals(1, result.size());
     }
 
+    @Test
+    void testSearchByCategory() {
+        // add two sweets in the same category
+        SweetShop shop = new SweetShop();
+        shop.addSweet(new Sweet(1, "Candy", "Sugar", 10, 10));
+        shop.addSweet(new Sweet(2, "Toffee", "Sugar", 15, 5));
+
+        // search by category should return both
+        List<Sweet> result = shop.searchByCategory("Sugar");
+        assertEquals(2, result.size());
+    }
+
     
    
     
