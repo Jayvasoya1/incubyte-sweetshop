@@ -72,6 +72,14 @@ public class SweetShop {
         sweet.setQuantity(sweet.getQuantity() + quantity);
     }
 
+    // Return list of sweets sorted by name (A to Z)
+    public List<Sweet> sortByName() {
+        return sweetMap.values().stream()
+                .sorted(Comparator.comparing(Sweet::getName))
+                .collect(Collectors.toList());
+    }
+
+
     
 
 
