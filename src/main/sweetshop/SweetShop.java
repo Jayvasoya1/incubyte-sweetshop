@@ -3,6 +3,7 @@ package main.sweetshop;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import main.sweetshop.exception.InsufficientStockException;
 import main.sweetshop.exception.SweetNotFoundException;
 
 
@@ -55,6 +56,17 @@ public class SweetShop {
                 .filter(s -> s.getPrice() >= min && s.getPrice() <= max)
                 .collect(Collectors.toList());
     }
+
+    // Buy sweets if enough quantity is available
+    public void purchaseSweet(int id, int quantity) {
+        Sweet sweet = findById(id);
+        if (sweet.getQuantity() < quantity) {
+            throw new InsufficientStockException("Not enough stock for sweet ID " + id);
+        }
+        sweet.setQuantity(sweet.getQuantity() - quantity);  // reduce stock
+    }
+
+    
 
 
 
