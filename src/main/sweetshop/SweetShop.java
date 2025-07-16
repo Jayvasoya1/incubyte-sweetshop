@@ -1,6 +1,8 @@
 package main.sweetshop;
 
 import java.util.*;
+import java.util.stream.Collectors;
+
 import main.sweetshop.exception.SweetNotFoundException;
 
 
@@ -32,5 +34,17 @@ public class SweetShop {
         }
         return sweet;
     }
+
+    // search sweets by name (case-insensitive)
+     public List<Sweet> searchByName(String name) {
+        return sweetMap.values().stream()
+                .filter(s -> s.getName().equalsIgnoreCase(name))
+                 .collect(Collectors.toList());
+    }
+
+
+
+
+      
    
 }
