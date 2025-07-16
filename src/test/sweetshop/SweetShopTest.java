@@ -1,6 +1,7 @@
 package test.sweetshop;
 
 import main.sweetshop.SweetShop;
+import main.sweetshop.exception.InsufficientStockException;
 import main.sweetshop.exception.SweetNotFoundException;
 import main.sweetshop.Sweet;
 
@@ -84,7 +85,18 @@ public class SweetShopTest {
 
         // restock it and check again
         shop.restockSweet(1001, 10);
+      
         assertEquals(15, shop.findById(1001).getQuantity());
+    }
+
+    @Test
+    void testPurchaseMoreThanStockThrows() {
+        // only 2 in stock but try to buy 5
+        SweetShop shop = new SweetShop();
+        shop.addSweet(new Sweet(1, "Peda", "Milk", 15, 2));
+
+        // should throw exception
+        assertThrows(InsufficientStockException.class, () -> shop.purchaseSweet(1, 5));
     }
 
     
