@@ -42,6 +42,13 @@ public class SweetShop {
                  .collect(Collectors.toList());
     }
 
+     // Search sweets by category
+    public List<Sweet> searchByCategory(String category) {
+        return sweetMap.values().stream()
+                .filter(s -> s.getCategory().equalsIgnoreCase(category))
+                .collect(Collectors.toList());
+    }
+
 
 
 
