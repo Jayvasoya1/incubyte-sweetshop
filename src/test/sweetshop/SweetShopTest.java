@@ -61,6 +61,17 @@ public class SweetShopTest {
         assertEquals(2, result.size());
     }
 
+    @Test
+    void testSearchByPriceRange() {
+        // add a sweet with price in given range
+        SweetShop shop = new SweetShop();
+        shop.addSweet(new Sweet(1, "Choco", "Choco", 30, 5));
+
+        // search within price range
+        List<Sweet> result = shop.searchByPriceRange(20, 40);
+        assertEquals(1, result.size());
+    }
+
     
    
     
