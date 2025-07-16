@@ -18,5 +18,10 @@ public class SweetShop {
         }
         sweetMap.remove(id);
     }
+
+     // Return all sweets as a list
+    public List<Sweet> getAllSweets() {
+        return new ArrayList<>(sweetMap.values());
+    }
    
 }
