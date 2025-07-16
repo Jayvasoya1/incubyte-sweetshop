@@ -49,6 +49,13 @@ public class SweetShop {
                 .collect(Collectors.toList());
     }
 
+    // Search sweets between min and max price
+    public List<Sweet> searchByPriceRange(double min, double max) {
+        return sweetMap.values().stream()
+                .filter(s -> s.getPrice() >= min && s.getPrice() <= max)
+                .collect(Collectors.toList());
+    }
+
 
 
 
