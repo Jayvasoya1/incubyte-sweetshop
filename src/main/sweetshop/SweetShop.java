@@ -23,5 +23,14 @@ public class SweetShop {
     public List<Sweet> getAllSweets() {
         return new ArrayList<>(sweetMap.values());
     }
+
+    // Find sweet by its ID
+    public Sweet findById(int id) {
+        Sweet sweet = sweetMap.get(id);
+        if (sweet == null) {
+            throw new SweetNotFoundException("Sweet with ID " + id + " not found.");
+        }
+        return sweet;
+    }
    
 }
