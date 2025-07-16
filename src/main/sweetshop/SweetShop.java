@@ -66,6 +66,12 @@ public class SweetShop {
         sweet.setQuantity(sweet.getQuantity() - quantity);  // reduce stock
     }
 
+    // Add stock to an existing sweet
+    public void restockSweet(int id, int quantity) {
+        Sweet sweet = findById(id);
+        sweet.setQuantity(sweet.getQuantity() + quantity);
+    }
+
     
 
 

@@ -72,6 +72,21 @@ public class SweetShopTest {
         assertEquals(1, result.size());
     }
 
+    @Test
+    void testPurchaseAndRestock() {
+        // add a sweet and purchase some
+        SweetShop shop = new SweetShop();
+        shop.addSweet(new Sweet(1001, "Ladoo", "Sweet", 25, 10));
+        shop.purchaseSweet(1001, 5);
+
+        // quantity should be reduced
+        assertEquals(5, shop.findById(1001).getQuantity());
+
+        // restock it and check again
+        shop.restockSweet(1001, 10);
+        assertEquals(15, shop.findById(1001).getQuantity());
+    }
+
     
    
     
