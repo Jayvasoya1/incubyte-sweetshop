@@ -110,18 +110,18 @@ public class SweetShopTest {
         List<Sweet> sorted = shop.sortByName();
         assertEquals("Candy", sorted.get(0).getName());
     }
-
     
+    @Test
+    void testSortingByQuantity() {
+        // add sweets with different quantities
+        SweetShop shop = new SweetShop();
+        shop.addSweet(new Sweet(1, "A", "X", 50, 2));
+        shop.addSweet(new Sweet(2, "B", "Y", 30, 5));
 
-
-    
-
-
-    
-
-    
-
-    
+        // sort by quantity ascending
+        List<Sweet> sorted = shop.sortByQuantity();
+        assertEquals(2, sorted.get(0).getQuantity());
+    }
    
     
 }
