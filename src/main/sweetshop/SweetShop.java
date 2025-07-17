@@ -92,15 +92,5 @@ public class SweetShop {
                 .sorted(Comparator.comparingInt(Sweet::getQuantity))
                 .collect(Collectors.toList());
     }
-
-
-
-
-    
-
-
-
-
-      
    
 }
