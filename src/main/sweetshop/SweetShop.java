@@ -79,6 +79,15 @@ public class SweetShop {
                 .collect(Collectors.toList());
     }
 
+    // Return sweets sorted by price (low to high)
+    public List<Sweet> sortByPrice() {
+        return sweetMap.values().stream()
+                .sorted(Comparator.comparingDouble(Sweet::getPrice))
+                .collect(Collectors.toList());
+    }
+
+
+
 
     
 
