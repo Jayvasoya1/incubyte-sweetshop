@@ -86,6 +86,13 @@ public class SweetShop {
                 .collect(Collectors.toList());
     }
 
+    // Sort sweets by available quantity (least to most)
+    public List<Sweet> sortByQuantity() {
+        return sweetMap.values().stream()
+                .sorted(Comparator.comparingInt(Sweet::getQuantity))
+                .collect(Collectors.toList());
+    }
+
 
 
 
