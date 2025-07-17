@@ -99,6 +99,20 @@ public class SweetShopTest {
         assertThrows(InsufficientStockException.class, () -> shop.purchaseSweet(1, 5));
     }
 
+    @Test
+    void testSortingByName() {
+        // add sweets with different names
+        SweetShop shop = new SweetShop();
+        shop.addSweet(new Sweet(2, "Toffee", "Sugar", 15, 5));
+        shop.addSweet(new Sweet(1, "Candy", "Sugar", 10, 10));
+
+        // sort alphabetically by name
+        List<Sweet> sorted = shop.sortByName();
+        assertEquals("Candy", sorted.get(0).getName());
+    }
+
+    
+
     
 
     
